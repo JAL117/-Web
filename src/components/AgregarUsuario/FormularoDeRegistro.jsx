@@ -104,7 +104,7 @@ function RegistroCompleto() {
       console.log(error);
       Swal.fire({
         icon: "error",
-        title: "Error",
+        title: `${error.response.data}`,
       });
     }
   };

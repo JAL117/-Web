@@ -81,8 +81,8 @@ const NavbarOffcanvas = () => {
               })
               .catch((err) => {
                 Swal.fire({
-                  icon: "success",
-                  title: `${err.message}`,
+                  icon: "error",
+                  title: `${err.response.data}`,
                   showConfirmButton: false,
                 });
               });
@@ -100,7 +100,11 @@ const NavbarOffcanvas = () => {
         }
       })
       .catch((error) => {
-        console.error(error);
+        Swal.fire({
+          icon: "error",
+          title: `${error.response.data}`,
+          showConfirmButton: true,
+        });
       });
   };
   return (

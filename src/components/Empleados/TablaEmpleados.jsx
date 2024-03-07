@@ -86,12 +86,14 @@ function Infor() {
           apiUrl+`usuario/pass/${user.usuario}&${result.value}`
         )
         .then((result) => {
+            console.log(result.data.message);
           if (result.data.message) {
              Swal.fire({
                icon: "error",
                title: "Contraseña incorrecta",
              });
-          }else{
+          }
+          else{
            Swal.fire({
              title: "Datos de inicio de sesión",
              html: `Usuario: ${usuario.usuario} <br>Contraseña: ${usuario.contraseña}`,
@@ -99,9 +101,10 @@ function Infor() {
            });
           }
         }).catch( (err) => {
+           console.log(err.response.data);
           Swal.fire({
             icon: "error",
-            title: "Error",
+            title: `${err.response.data}`,
           });
         });
     });
